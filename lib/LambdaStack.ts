@@ -9,7 +9,7 @@ interface LambdaStackProps extends StackProps {
 }
 
 export class LambdaStack extends Stack {
-    constructor(scope: Construct, id: string, props: LambdaStackProps) {
+    constructor(scope: Construct, id: string, props?: LambdaStackProps) {
         super(scope, id, props);
 
         // We add a very simple Lambda:
@@ -18,7 +18,7 @@ export class LambdaStack extends Stack {
             handler: 'handler',
             entry: (join(__dirname, '..', 'services', 'hello.ts')),
             environment: {
-                STAGE: props.stageName!
+                STAGE: props?.stageName!
             }
         });
     }
