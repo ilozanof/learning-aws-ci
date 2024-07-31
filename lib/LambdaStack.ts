@@ -12,6 +12,7 @@ export class LambdaStack extends Stack {
     constructor(scope: Construct, id: string, props: LambdaStackProps) {
         super(scope, id, props);
 
+        // We add a very simple Lambda:
         new NodejsFunction(this, 'helloLambda', {
             runtime: Runtime.NODEJS_18_X,
             handler: 'handler',
