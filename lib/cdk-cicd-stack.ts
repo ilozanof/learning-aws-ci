@@ -10,7 +10,7 @@ export class CdkCicdStack extends cdk.Stack {
     new CodePipeline(this, 'AwesomePipeline', {
       pipelineName: 'AwesomePipeline',
       synth: new ShellStep('Synth', {
-        input: CodePipelineSource.gitHub('ilozanof/learning-aws-ci', 'main'),
+        input: CodePipelineSource.gitHub('ilozanof/learning-aws-ci', 'master'),
         commands: [
           'npm ci',
           'npx cdk synth'
